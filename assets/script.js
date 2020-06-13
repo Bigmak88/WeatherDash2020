@@ -13,7 +13,7 @@ $("#searchButton").click(function()   {
 
     // Generate 5 Day Forecast
   $.ajax({
-    url: 'http://api.openweathermap.org/data/2.5/forecast?q=' + searchTerm + '&appid=' + apiKey + '&units=imperial',
+    url: 'https://api.openweathermap.org/data/2.5/forecast?q=' + searchTerm + '&appid=' + apiKey + '&units=imperial',
     method: "GET"
   }).then(function(response) {
     //console.log(response);
@@ -27,7 +27,7 @@ $("#searchButton").click(function()   {
     ];
 
     let weatherIconID = response.list[i].weather[0].icon;
-    $('#forecast').last().append('<tr><td>'+ '<img src="http://openweathermap.org/img/wn/' + weatherIconID + '@2x.png" alt="weatherIcon">' +response.list[i].dt_txt +'</td><td>' + "Hi: " + response.list[i].main.temp_max+'</td><td>'+ "Lo: " + response.list[i].main.temp_min+'</td></tr>' + '<br><br>');
+    $('#forecast').last().append('<tr><td>'+ '<img src="https://openweathermap.org/img/wn/' + weatherIconID + '@2x.png" alt="weatherIcon">' +response.list[i].dt_txt +'</td><td>' + "Hi: " + response.list[i].main.temp_max+'</td><td>'+ "Lo: " + response.list[i].main.temp_min+'</td></tr>' + '<br><br>');
     }
     console.log(forecastEl);
   });
@@ -43,7 +43,7 @@ function getAndRenderCurrentWeather(CurrentWeatherURL, city){
   }).then(function(response) {
     // Get UV Index (Latitude and Longitude from Response)
     $.ajax ({
-      url: 'http://api.openweathermap.org/data/2.5/uvi?appid=' + apiKey + '&lat=' + response.coord.lat + '&lon=' + response.coord.lon,
+      url: 'https://api.openweathermap.org/data/2.5/uvi?appid=' + apiKey + '&lat=' + response.coord.lat + '&lon=' + response.coord.lon,
       method: 'GET',
     }).then(function(uv) {
       console.log(uv);
@@ -62,7 +62,7 @@ function getAndRenderCurrentWeather(CurrentWeatherURL, city){
     // Send Response To Div IDs
 
     let weatherIconID = response.weather[0].icon;
-    $("#temperature").text(city + " is " + response.main.temp + "F").append('<img src="http://openweathermap.org/img/wn/' + weatherIconID + '@2x.png" alt="weatherIcon">');
+    $("#temperature").text(city + " is " + response.main.temp + "F").append('<img src="https://openweathermap.org/img/wn/' + weatherIconID + '@2x.png" alt="weatherIcon">');
     $("#humidity").text("Humidity:" + " " + response.main.humidity + "%");
     $("#windSpeed").text("Wind Speed:" + " " + response.wind.speed + "mph");
 
