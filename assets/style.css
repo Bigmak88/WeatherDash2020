@@ -1,0 +1,121 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgb(31, 111, 114);
+    color: white;
+}
+
+/* 5 day forecast table */
+table thead tr{
+    display:block;
+}
+
+table th,table td{
+    width:400px;
+}
+
+
+table  tbody{
+    display:block;
+    height:400px;
+    overflow:auto;//set tbody to auto
+}
+
+/* Search Field */
+input {
+    float: left;
+    width: 90%;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 40px;
+    margin-top: 10px;
+    font-size: 17px;
+}
+
+/* Search Button */
+button {
+    float: left;
+    width: 10%;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-left: 8px;
+    margin-top: 10px;
+    background-color: darkslategray;
+    color: white;
+}
+
+button:hover{
+    background-color: rgb(79, 131, 131);
+}
+
+/* Header Font */
+h1 {
+    font-size: 50px;
+    color: black;
+    font-weight: bold;
+    color: white;
+}
+
+
+/* Search Column */
+.col-md-12 {
+    float:none; 
+    border: 2px solid black;
+    text-align: center; 
+    margin:auto;
+    background-color: darkslategray;
+}
+
+#todaysWeather {
+    text-align: center;
+}
+
+/* City History */
+li  {
+    text-align: center;
+    margin: 5px;
+    width: 12rem;
+    border: 1px solid black;
+    background: rgb(47, 79, 79, 0.5);
+    outline: 0;
+}
+
+.col-md-4 {
+    float: left;
+    display: block;
+    margin: auto;
+    background-color: rgb(47, 79, 79, 0.5);
+}
+
+.search {
+    display: flex;
+}
+
+#uvIndex {
+    align-content: center;
+    color: black;
+    font-weight: bold;
+    width: 12rem;
+}
+
+.icon-container {
+    position: relative;
+    top: 50px;
+    padding: 20px;
+    background-color: white;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+}
+
+.uvSafe {
+    background-color: green;
+}
+
+.uvWarning {
+    background-color: yellow;
+}
+
+.uvDanger {
+    background-color: red;
+}
