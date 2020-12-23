@@ -9,6 +9,7 @@ $("#searchButton").click(function()   {
   var apiKey = "4fa305338a3eb35179d17306e7919e60"
   var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + searchTerm + "&appid=" + apiKey + "&units=imperial";
   // console.log(searchTerm);
+  $("#fiveDays").css('visibility', 'visible');
   cityHistory(searchTerm);
 
     // Generate 5 Day Forecast
@@ -99,20 +100,23 @@ function cityHistory(weatherValue) {
 
 // Create function for Search History
 function renderPastCities(array) {
-  console.log(array)
   $("#cityHistory").empty();
   array.forEach(element => {
-    var li = $('<li id="liEl"></li>').text(element);
+    var li = $('<li></li>').text(element);
     $("#cityHistory").append(li);
-    $("#liEl").click(function(){
-      cityHistory(searchTerm);
-    })
     $("#clearHistory").css('visibility', 'visible');
+    //clear history
     $("#clearHistory").click(function(){
       $(li).remove();
       $("#clearHistory").css('visibility', 'hidden');
       localStorage.removeItem('cityHistory');
       $("#searchInput").val("");
+    })
+    // Search by History
+    $(li).click(function(){
+      var apiKey = "4fa305338a3eb35179d17306e7919e60";
+      var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + element + "&appid=" + apiKey + "&units=imperial";
+      getAndRenderCurrentWeather(queryURL, element);
     })
   })
 }

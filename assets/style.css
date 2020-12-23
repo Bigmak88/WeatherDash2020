@@ -67,6 +67,10 @@ h1 {
     background-color: darkslategray;
 }
 
+#fiveDays {
+    visibility: hidden;
+}
+
 #todaysWeather {
     text-align: center;
 }
