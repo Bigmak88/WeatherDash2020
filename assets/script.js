@@ -75,7 +75,7 @@ function getAndRenderCurrentWeather(CurrentWeatherURL, city){
 $("#searchButton").click(function() {
 
   // Clear Search
-  $("#searchButton").val("");
+  $("#searchInput").val("");
   $('#forecast').empty();
 });
 
@@ -102,7 +102,17 @@ function renderPastCities(array) {
   console.log(array)
   $("#cityHistory").empty();
   array.forEach(element => {
-    var li = $("<li></li>").text(element);
+    var li = $('<li id="liEl"></li>').text(element);
     $("#cityHistory").append(li);
+    $("#liEl").click(function(){
+      cityHistory(searchTerm);
+    })
+    $("#clearHistory").css('visibility', 'visible');
+    $("#clearHistory").click(function(){
+      $(li).remove();
+      $("#clearHistory").css('visibility', 'hidden');
+      localStorage.removeItem('cityHistory');
+      $("#searchInput").val("");
+    })
   })
 }

@@ -34,6 +34,7 @@ input {
 
 /* Search Button */
 button {
+    display: block;
     float: left;
     width: 10%;
     border: 1px solid black;
@@ -72,6 +73,8 @@ h1 {
 
 /* City History */
 li  {
+    float: left;
+    display: block;
     text-align: center;
     margin: 5px;
     width: 12rem;
@@ -79,6 +82,14 @@ li  {
     background: rgb(47, 79, 79, 0.5);
     outline: 0;
 }
+
+#clearHistory {
+    visibility: hidden;
+    float:right;
+    width: 70px;
+    margin-bottom: 5px;
+}
+
 
 .col-md-4 {
     float: left;
