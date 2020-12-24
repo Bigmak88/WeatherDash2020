@@ -84,7 +84,6 @@ $("#searchButton").click(function() {
 
 // Check for duplicates
 function cityHistory(weatherValue) {
-  //console.log(weatherValue);
   if ("cityHistory" in localStorage)  {
     historyArr.push(weatherValue);
     localStorage.setItem("cityHistory", JSON.stringify(historyArr));
@@ -112,11 +111,9 @@ function renderPastCities(array) {
       localStorage.removeItem('cityHistory');
       $("#searchInput").val("");
     })
-    // Search by History
+    // Search History to input field
     $(li).click(function(){
-      var apiKey = "4fa305338a3eb35179d17306e7919e60";
-      var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + element + "&appid=" + apiKey + "&units=imperial";
-      getAndRenderCurrentWeather(queryURL, element);
+            $("#searchInput").val(element);
     })
   })
 }

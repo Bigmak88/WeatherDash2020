@@ -17,7 +17,7 @@ table th,table td{
 table  tbody{
     display:block;
     height:400px;
-    overflow:auto;//set tbody to auto
+    overflow:auto;
 }
 
 /* Search Field */
